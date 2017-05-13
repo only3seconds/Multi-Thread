@@ -6,5 +6,6 @@
   <packaging>pom</packaging>
   <modules>
   	<module>java-multi-thread-chapter01</module>
+  	<module>java-multi-thread-chapter02</module>
   </modules>
 </project>
