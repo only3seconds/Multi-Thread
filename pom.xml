@@ -7,5 +7,6 @@
   <modules>
   	<module>java-multi-thread-chapter01</module>
   	<module>java-multi-thread-chapter02</module>
+  	<module>java-multi-thread-chapter03</module>
   </modules>
 </project>
