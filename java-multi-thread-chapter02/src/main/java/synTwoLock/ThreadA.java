@@ -1,14 +1,8 @@
 package synTwoLock;
 
 public class ThreadA extends Thread {
-	private Service service;
-	
-	public ThreadA(Service service) {
-		super();
-		this.service = service;
-	}
-	
+
 	public void run() {
-		service.printA();
+		Service.printA(); //printA()为 static 方法，可以直接由类名获得
 	}
 }

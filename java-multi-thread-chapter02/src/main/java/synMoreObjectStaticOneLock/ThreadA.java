@@ -1,6 +1,7 @@
 package synMoreObjectStaticOneLock;
 
 public class ThreadA extends Thread {
+	
 	private Service service;
 	
 	public ThreadA(Service service){

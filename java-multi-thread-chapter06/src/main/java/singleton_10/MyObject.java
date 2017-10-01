@@ -1,0 +1,37 @@
+package singleton_10;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class MyObject {
+	
+	public enum MyEnumSingleton {
+		connectionFactory;
+		private Connection connection;
+		private MyEnumSingleton() {
+			try {
+				System.out.println("创建 MyObject 对象");
+				String url = "jdbc:sqlserver://localhost:1079;databaseName=pppdb";
+				String username = "sa";
+				String password = "";
+				String driverName = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+				Class.forName(driverName);
+				connection = DriverManager.getConnection(url, username, password);
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		public Connection getConnection() {
+			return connection;
+		}
+	}
+	
+	public static  Connection getConnection() {
+		return MyEnumSingleton.connectionFactory.getConnection();
+	}
+}

@@ -1,6 +1,8 @@
 package synTwoLock;
 
 public class Service {
+	
+	//synchronized 加到 static 方法是给 Class类 上锁，Class锁可以对所有对象实例起作用
 	synchronized public static void printA() {
 		try {
 			System.out.println("线程名称为：" + Thread.currentThread().getName()
@@ -13,17 +15,20 @@ public class Service {
 			e.printStackTrace();
 		}
 	}
-		
-		synchronized public static void printB() {
-			System.out.println("线程名称为：" + Thread.currentThread().getName()
+	
+	//synchronized 加到 static 方法是给 Class类 上锁，Class锁可以对所有对象实例起作用
+	synchronized public static void printB() {
+		System.out.println("线程名称为：" + Thread.currentThread().getName()
 					+ "在" + System.currentTimeMillis() + "进入printB");
-			System.out.println("线程名称为：" + Thread.currentThread().getName()
+		System.out.println("线程名称为：" + Thread.currentThread().getName()
 					+ "在" + System.currentTimeMillis() + "离开printB");
-		}
-		synchronized public static void printC() {
-			System.out.println("线程名称为：" + Thread.currentThread().getName()
+	}
+	
+	//synchronized 加到 非static 方法是给 对象 上锁
+	synchronized public void printC() {
+		System.out.println("线程名称为：" + Thread.currentThread().getName()
 					+ "在" + System.currentTimeMillis() + "进入printC");
-			System.out.println("线程名称为：" + Thread.currentThread().getName()
+		System.out.println("线程名称为：" + Thread.currentThread().getName()
 					+ "在" + System.currentTimeMillis() + "离开printC");
-		}
+	}
 }
